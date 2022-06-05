@@ -8,19 +8,23 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 12> locations_array__ = 
+static constexpr std::array<const char*, 16> locations_array__ = 
 {" (found before start of program)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 8, column 4 to column 15)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 9, column 4 to column 14)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 10, column 4 to column 37)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 18, column 3 to column 60)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 14, column 4 to column 45)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 10, column 4 to column 15)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 11, column 4 to column 37)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 22, column 3 to column 62)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 15, column 4 to column 29)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 16, column 4 to column 27)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 17, column 4 to column 31)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 18, column 4 to column 47)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 2, column 4 to column 10)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 3, column 11 to column 12)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 3, column 4 to column 16)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 4, column 11 to column 12)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 4, column 4 to column 16)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 18, column 14 to column 15)"};
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 22, column 14 to column 15)"};
 
 
 
@@ -59,17 +63,17 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
     try {
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
-      current_statement__ = 6;
+      current_statement__ = 10;
       context__.validate_dims("data initialization","N","int",
            std::vector<size_t>{});
       N = std::numeric_limits<int>::min();
       
       
-      current_statement__ = 6;
+      current_statement__ = 10;
       N = context__.vals_i("N")[(1 - 1)];
-      current_statement__ = 7;
+      current_statement__ = 11;
       stan::math::validate_non_negative_index("x", "N", N);
-      current_statement__ = 8;
+      current_statement__ = 12;
       context__.validate_dims("data initialization","x","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       x__ = 
@@ -79,22 +83,22 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       
       {
         std::vector<local_scalar_t__> x_flat__;
-        current_statement__ = 8;
+        current_statement__ = 12;
         x_flat__ = context__.vals_r("x");
-        current_statement__ = 8;
+        current_statement__ = 12;
         pos__ = 1;
-        current_statement__ = 8;
+        current_statement__ = 12;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 8;
+          current_statement__ = 12;
           stan::model::assign(x, x_flat__[(pos__ - 1)],
             "assigning variable x", stan::model::index_uni(sym1__));
-          current_statement__ = 8;
+          current_statement__ = 12;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 9;
+      current_statement__ = 13;
       stan::math::validate_non_negative_index("y", "N", N);
-      current_statement__ = 10;
+      current_statement__ = 14;
       context__.validate_dims("data initialization","y","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       y__ = 
@@ -104,25 +108,25 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       
       {
         std::vector<local_scalar_t__> y_flat__;
-        current_statement__ = 10;
+        current_statement__ = 14;
         y_flat__ = context__.vals_r("y");
-        current_statement__ = 10;
+        current_statement__ = 14;
         pos__ = 1;
-        current_statement__ = 10;
+        current_statement__ = 14;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 10;
+          current_statement__ = 14;
           stan::model::assign(y, y_flat__[(pos__ - 1)],
             "assigning variable y", stan::model::index_uni(sym1__));
-          current_statement__ = 10;
+          current_statement__ = 14;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 11;
+      current_statement__ = 15;
       stan::math::validate_non_negative_index("y_gen", "N", N);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
-    num_params_r__ = 1 + 1 + 1;
+    num_params_r__ = 1 + 1 + 1 + 1;
     
   }
   
@@ -150,17 +154,25 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       local_scalar_t__ beta = DUMMY_VAR__;
       current_statement__ = 2;
       beta = in__.template read<local_scalar_t__>();
-      local_scalar_t__ sigma = DUMMY_VAR__;
+      local_scalar_t__ gamma = DUMMY_VAR__;
       current_statement__ = 3;
+      gamma = in__.template read<local_scalar_t__>();
+      local_scalar_t__ sigma = DUMMY_VAR__;
+      current_statement__ = 4;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
-                0, 0.1, lp__);
+                0, 0.5, lp__);
       {
-        current_statement__ = 5;
+        current_statement__ = 6;
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, -240, 20));
+        current_statement__ = 7;
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta, 350, 30));
+        current_statement__ = 8;
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(gamma, -0.17, 0.5));
+        current_statement__ = 9;
         lp_accum__.add(
           stan::math::normal_lpdf<propto__>(y,
             stan::math::add(alpha,
-              stan::math::multiply(beta, stan::math::pow(x, stan::math::e()))),
-            sigma));
+              stan::math::multiply(beta, stan::math::pow(x, gamma))), sigma));
       }
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -200,12 +212,16 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       double beta = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 2;
       beta = in__.template read<local_scalar_t__>();
-      double sigma = std::numeric_limits<double>::quiet_NaN();
+      double gamma = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 3;
+      gamma = in__.template read<local_scalar_t__>();
+      double sigma = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 4;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
-                0, 0.1, lp__);
+                0, 0.5, lp__);
       out__.write(alpha);
       out__.write(beta);
+      out__.write(gamma);
       out__.write(sigma);
       if (stan::math::logical_negation((stan::math::primitive_value(
             emit_transformed_parameters__) || stan::math::primitive_value(
@@ -217,12 +233,12 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       } 
       std::vector<double> y_gen =
          std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 4;
+      current_statement__ = 5;
       stan::model::assign(y_gen,
         stan::math::normal_rng(
           stan::math::add(alpha,
-            stan::math::multiply(beta, stan::math::pow(x, stan::math::e()))),
-          sigma, base_rng__), "assigning variable y_gen");
+            stan::math::multiply(beta, stan::math::pow(x, gamma))), sigma,
+          base_rng__), "assigning variable y_gen");
       out__.write(y_gen);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -250,9 +266,12 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       local_scalar_t__ beta = DUMMY_VAR__;
       beta = in__.read<local_scalar_t__>();
       out__.write(beta);
+      local_scalar_t__ gamma = DUMMY_VAR__;
+      gamma = in__.read<local_scalar_t__>();
+      out__.write(gamma);
       local_scalar_t__ sigma = DUMMY_VAR__;
       sigma = in__.read<local_scalar_t__>();
-      out__.write_free_lub(0, 0.1, sigma);
+      out__.write_free_lub(0, 0.5, sigma);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -260,15 +279,16 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
     
   inline void get_param_names(std::vector<std::string>& names__) const {
     
-    names__ = std::vector<std::string>{"alpha", "beta", "sigma", "y_gen"};
+    names__ = std::vector<std::string>{"alpha", "beta", "gamma", "sigma",
+      "y_gen"};
     
     } // get_param_names() 
     
   inline void get_dims(std::vector<std::vector<size_t>>& dimss__) const {
     
     dimss__ = std::vector<std::vector<size_t>>{std::vector<size_t>{},
-      std::vector<size_t>{}, std::vector<size_t>{},
-      std::vector<size_t>{static_cast<size_t>(N)}};
+      std::vector<size_t>{}, std::vector<size_t>{}, std::vector<size_t>{
+      }, std::vector<size_t>{static_cast<size_t>(N)}};
     
     } // get_dims() 
     
@@ -280,6 +300,7 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
     
     param_names__.emplace_back(std::string() + "alpha");
     param_names__.emplace_back(std::string() + "beta");
+    param_names__.emplace_back(std::string() + "gamma");
     param_names__.emplace_back(std::string() + "sigma");
     if (emit_transformed_parameters__) {
       
@@ -303,6 +324,7 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
     
     param_names__.emplace_back(std::string() + "alpha");
     param_names__.emplace_back(std::string() + "beta");
+    param_names__.emplace_back(std::string() + "gamma");
     param_names__.emplace_back(std::string() + "sigma");
     if (emit_transformed_parameters__) {
       
@@ -320,13 +342,13 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
     
   inline std::string get_constrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"gamma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
     
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"gamma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
     
     } // get_unconstrained_sizedtypes() 
     
@@ -340,7 +362,7 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
                             const bool emit_generated_quantities = true,
                             std::ostream* pstream = nullptr) const {
       const size_t num_params__ = 
-  ((1 + 1) + 1);
+  (((1 + 1) + 1) + 1);
       const size_t num_transformed = 0;
       const size_t num_gen_quantities = N;
       std::vector<double> vars_vec(num_params__
@@ -361,7 +383,7 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
                             bool emit_generated_quantities = true,
                             std::ostream* pstream = nullptr) const {
       const size_t num_params__ = 
-  ((1 + 1) + 1);
+  (((1 + 1) + 1) + 1);
       const size_t num_transformed = 0;
       const size_t num_gen_quantities = N;
       vars.resize(num_params__
@@ -399,8 +421,9 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
                               std::vector<int>& params_i,
                               std::vector<double>& vars,
                               std::ostream* pstream__ = nullptr) const {
-     constexpr std::array<const char*, 3> names__{"alpha", "beta", "sigma"};
-      const std::array<Eigen::Index, 3> constrain_param_sizes__{1, 1, 1};
+     constexpr std::array<const char*, 4> names__{"alpha", "beta", "gamma",
+      "sigma"};
+      const std::array<Eigen::Index, 4> constrain_param_sizes__{1, 1, 1, 1};
       const auto num_constrained_params__ = std::accumulate(
         constrain_param_sizes__.begin(), constrain_param_sizes__.end(), 0);
     
