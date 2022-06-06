@@ -8,19 +8,21 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 12> locations_array__ = 
+static constexpr std::array<const char*, 14> locations_array__ = 
 {" (found before start of program)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 8, column 4 to column 15)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 9, column 4 to column 14)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 10, column 4 to column 35)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 18, column 3 to column 53)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 14, column 4 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 20, column 3 to column 53)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 14, column 4 to column 26)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 15, column 4 to column 25)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 16, column 4 to column 38)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 2, column 4 to column 10)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 3, column 11 to column 12)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 3, column 4 to column 16)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 4, column 11 to column 12)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 4, column 4 to column 16)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 18, column 14 to column 15)"};
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 20, column 14 to column 15)"};
 
 
 
@@ -59,17 +61,17 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
     try {
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
-      current_statement__ = 6;
+      current_statement__ = 8;
       context__.validate_dims("data initialization","N","int",
            std::vector<size_t>{});
       N = std::numeric_limits<int>::min();
       
       
-      current_statement__ = 6;
-      N = context__.vals_i("N")[(1 - 1)];
-      current_statement__ = 7;
-      stan::math::validate_non_negative_index("x", "N", N);
       current_statement__ = 8;
+      N = context__.vals_i("N")[(1 - 1)];
+      current_statement__ = 9;
+      stan::math::validate_non_negative_index("x", "N", N);
+      current_statement__ = 10;
       context__.validate_dims("data initialization","x","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       x__ = 
@@ -79,22 +81,22 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       
       {
         std::vector<local_scalar_t__> x_flat__;
-        current_statement__ = 8;
+        current_statement__ = 10;
         x_flat__ = context__.vals_r("x");
-        current_statement__ = 8;
+        current_statement__ = 10;
         pos__ = 1;
-        current_statement__ = 8;
+        current_statement__ = 10;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 8;
+          current_statement__ = 10;
           stan::model::assign(x, x_flat__[(pos__ - 1)],
             "assigning variable x", stan::model::index_uni(sym1__));
-          current_statement__ = 8;
+          current_statement__ = 10;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 9;
+      current_statement__ = 11;
       stan::math::validate_non_negative_index("y", "N", N);
-      current_statement__ = 10;
+      current_statement__ = 12;
       context__.validate_dims("data initialization","y","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       y__ = 
@@ -104,20 +106,20 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       
       {
         std::vector<local_scalar_t__> y_flat__;
-        current_statement__ = 10;
+        current_statement__ = 12;
         y_flat__ = context__.vals_r("y");
-        current_statement__ = 10;
+        current_statement__ = 12;
         pos__ = 1;
-        current_statement__ = 10;
+        current_statement__ = 12;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 10;
+          current_statement__ = 12;
           stan::model::assign(y, y_flat__[(pos__ - 1)],
             "assigning variable y", stan::model::index_uni(sym1__));
-          current_statement__ = 10;
+          current_statement__ = 12;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 11;
+      current_statement__ = 13;
       stan::math::validate_non_negative_index("y_gen", "N", N);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -156,6 +158,10 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
                 0, 1, lp__);
       {
         current_statement__ = 5;
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, 25, 5));
+        current_statement__ = 6;
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta, -2, 1));
+        current_statement__ = 7;
         lp_accum__.add(
           stan::math::normal_lpdf<propto__>(y,
             stan::math::add(alpha, stan::math::multiply(x, beta)), sigma));
