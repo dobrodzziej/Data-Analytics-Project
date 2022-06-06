@@ -13,7 +13,7 @@ static constexpr std::array<const char*, 16> locations_array__ =
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 8, column 4 to column 15)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 9, column 4 to column 14)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 10, column 4 to column 15)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 11, column 4 to column 35)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 11, column 4 to column 36)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 22, column 3 to column 62)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 15, column 4 to column 29)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_phillips.stan', line 16, column 4 to column 27)",
@@ -160,7 +160,7 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       local_scalar_t__ sigma = DUMMY_VAR__;
       current_statement__ = 4;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
-                0, 1, lp__);
+                0, 25, lp__);
       {
         current_statement__ = 6;
         lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, -100, 20));
@@ -218,7 +218,7 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       double sigma = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 4;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
-                0, 1, lp__);
+                0, 25, lp__);
       out__.write(alpha);
       out__.write(beta);
       out__.write(gamma);
@@ -271,7 +271,7 @@ class Inflation_model_phillips_model final : public model_base_crtp<Inflation_mo
       out__.write(gamma);
       local_scalar_t__ sigma = DUMMY_VAR__;
       sigma = in__.read<local_scalar_t__>();
-      out__.write_free_lub(0, 1, sigma);
+      out__.write_free_lub(0, 25, sigma);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
