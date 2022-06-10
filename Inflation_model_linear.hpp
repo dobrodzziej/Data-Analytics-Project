@@ -15,7 +15,7 @@ static constexpr std::array<const char*, 14> locations_array__ =
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 10, column 4 to column 35)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 20, column 3 to column 53)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 14, column 4 to column 26)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 15, column 4 to column 25)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 15, column 4 to column 31)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 16, column 4 to column 38)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 2, column 4 to column 10)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 3, column 11 to column 12)",
@@ -155,12 +155,12 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       local_scalar_t__ sigma = DUMMY_VAR__;
       current_statement__ = 3;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
-                0, 1, lp__);
+                0, 2, lp__);
       {
         current_statement__ = 5;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, 25, 5));
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, 18, 2));
         current_statement__ = 6;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta, -2, 1));
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta, -0.55, 0.04));
         current_statement__ = 7;
         lp_accum__.add(
           stan::math::normal_lpdf<propto__>(y,
@@ -207,7 +207,7 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       double sigma = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 3;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
-                0, 1, lp__);
+                0, 2, lp__);
       out__.write(alpha);
       out__.write(beta);
       out__.write(sigma);
@@ -255,7 +255,7 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       out__.write(beta);
       local_scalar_t__ sigma = DUMMY_VAR__;
       sigma = in__.read<local_scalar_t__>();
-      out__.write_free_lub(0, 1, sigma);
+      out__.write_free_lub(0, 2, sigma);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }

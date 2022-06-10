@@ -11,14 +11,14 @@ stan::math::profile_map profiles__;
 static constexpr std::array<const char*, 15> locations_array__ = 
 {" (found before start of program)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 7, column 4 to column 37)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 8, column 4 to column 36)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 9, column 4 to column 40)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 8, column 4 to column 42)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 9, column 4 to column 38)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 10, column 4 to column 58)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 12, column 4 to column 40)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 13, column 4 to column 38)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 14, column 4 to column 39)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 15, column 4 to column 40)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 16, column 4 to column 67)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 12, column 4 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 13, column 4 to column 37)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 14, column 4 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 15, column 4 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 16, column 4 to column 68)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 2, column 4 to column 10)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 3, column 11 to column 12)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 3, column 4 to column 16)",
@@ -165,13 +165,13 @@ class generated_quantities_model final : public model_base_crtp<generated_quanti
       } 
       double alpha_l = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 1;
-      alpha_l = stan::math::normal_rng(25, 5, base_rng__);
+      alpha_l = stan::math::normal_rng(18, 2, base_rng__);
       double beta_l = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 2;
-      beta_l = stan::math::normal_rng(-2, 1, base_rng__);
+      beta_l = stan::math::normal_rng(-0.55, 0.04, base_rng__);
       double sigma_l = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 3;
-      sigma_l = stan::math::normal_rng(0.5, 0.2, base_rng__);
+      sigma_l = stan::math::normal_rng(1, 0.5, base_rng__);
       std::vector<double> y_l =
          std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       current_statement__ = 4;
@@ -181,23 +181,23 @@ class generated_quantities_model final : public model_base_crtp<generated_quanti
           base_rng__), "assigning variable y_l");
       double alpha_p = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 5;
-      alpha_p = stan::math::normal_rng(-100, 20, base_rng__);
+      alpha_p = stan::math::normal_rng(1, 0.2, base_rng__);
       double beta_p = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 6;
-      beta_p = stan::math::normal_rng(300, 30, base_rng__);
+      beta_p = stan::math::normal_rng(35, 10, base_rng__);
       double gamma = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 7;
-      gamma = stan::math::normal_rng(-0.2, 0.4, base_rng__);
+      gamma = stan::math::normal_rng(1.6, 0.5, base_rng__);
       double sigma_p = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 8;
-      sigma_p = stan::math::normal_rng(2.5, 0.8, base_rng__);
+      sigma_p = stan::math::normal_rng(1, 0.5, base_rng__);
       std::vector<double> y_p =
          std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       current_statement__ = 9;
       stan::model::assign(y_p,
         stan::math::normal_rng(
           stan::math::add(alpha_p,
-            stan::math::multiply(beta_p, stan::math::pow(x, gamma))),
+            stan::math::elt_divide(beta_p, stan::math::pow(x, gamma))),
           sigma_p, base_rng__), "assigning variable y_p");
       out__.write(alpha_l);
       out__.write(beta_l);

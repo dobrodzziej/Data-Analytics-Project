@@ -7,12 +7,12 @@ data{
 parameters{
     real alpha;
     real beta;
-    real<lower=0, upper = 1> sigma;
+    real<lower=0, upper = 2> sigma;
 }
 
 model {
-    alpha ~ normal(25, 5);
-    beta ~ normal(-2, 1);
+    alpha ~ normal(18, 2);
+    beta ~ normal(-0.55, 0.04);
     y ~ normal(alpha + x*beta, sigma);
 }
 
