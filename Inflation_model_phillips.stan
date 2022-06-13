@@ -8,7 +8,7 @@ parameters{
     real alpha;
     real beta;
     real gamma;
-    real<lower=0, upper = 2> sigma;
+    real<lower=0, upper = 1> sigma;
 }
 
 model {

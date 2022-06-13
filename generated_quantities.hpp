@@ -12,12 +12,12 @@ static constexpr std::array<const char*, 15> locations_array__ =
 {" (found before start of program)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 7, column 4 to column 37)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 8, column 4 to column 42)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 9, column 4 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 9, column 4 to column 42)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 10, column 4 to column 58)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 12, column 4 to column 38)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 13, column 4 to column 37)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 14, column 4 to column 38)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 15, column 4 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 15, column 4 to column 42)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 16, column 4 to column 68)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 2, column 4 to column 10)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/generated_quantities.stan', line 3, column 11 to column 12)",
@@ -171,7 +171,7 @@ class generated_quantities_model final : public model_base_crtp<generated_quanti
       beta_l = stan::math::normal_rng(-0.55, 0.04, base_rng__);
       double sigma_l = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 3;
-      sigma_l = stan::math::normal_rng(1, 0.5, base_rng__);
+      sigma_l = stan::math::fabs(stan::math::normal_rng(0, 4, base_rng__));
       std::vector<double> y_l =
          std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       current_statement__ = 4;
@@ -190,7 +190,7 @@ class generated_quantities_model final : public model_base_crtp<generated_quanti
       gamma = stan::math::normal_rng(1.6, 0.5, base_rng__);
       double sigma_p = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 8;
-      sigma_p = stan::math::normal_rng(1, 0.5, base_rng__);
+      sigma_p = stan::math::fabs(stan::math::normal_rng(0, 4, base_rng__));
       std::vector<double> y_p =
          std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       current_statement__ = 9;
