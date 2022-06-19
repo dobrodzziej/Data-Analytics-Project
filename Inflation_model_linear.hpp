@@ -8,21 +8,32 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 14> locations_array__ = 
+static constexpr std::array<const char*, 25> locations_array__ = 
 {" (found before start of program)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 8, column 4 to column 15)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 9, column 4 to column 14)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 10, column 4 to column 35)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 20, column 3 to column 53)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 14, column 4 to column 26)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 15, column 4 to column 31)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 16, column 4 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 14, column 3 to column 33)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 24, column 4 to column 18)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 25, column 4 to column 22)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 26, column 4 to column 24)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 28, column 8 to column 44)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 29, column 8 to column 54)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 30, column 2 to column 38)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 27, column 18 to line 31, column 5)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 27, column 4 to line 31, column 5)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 18, column 4 to column 26)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 19, column 4 to column 31)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 20, column 4 to column 26)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 2, column 4 to column 10)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 3, column 11 to column 12)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 3, column 4 to column 16)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 4, column 11 to column 12)",
  " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 4, column 4 to column 16)",
- " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 20, column 14 to column 15)"};
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 14, column 10 to column 11)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 24, column 15 to column 16)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 25, column 11 to column 12)",
+ " (in 'C:/Studia/Data-Analytics/Projekt-Proper/Inflation_model_linear.stan', line 26, column 10 to column 11)"};
 
 
 
@@ -61,17 +72,17 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
     try {
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
-      current_statement__ = 8;
+      current_statement__ = 16;
       context__.validate_dims("data initialization","N","int",
            std::vector<size_t>{});
       N = std::numeric_limits<int>::min();
       
       
-      current_statement__ = 8;
+      current_statement__ = 16;
       N = context__.vals_i("N")[(1 - 1)];
-      current_statement__ = 9;
+      current_statement__ = 17;
       stan::math::validate_non_negative_index("x", "N", N);
-      current_statement__ = 10;
+      current_statement__ = 18;
       context__.validate_dims("data initialization","x","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       x__ = 
@@ -81,22 +92,22 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       
       {
         std::vector<local_scalar_t__> x_flat__;
-        current_statement__ = 10;
+        current_statement__ = 18;
         x_flat__ = context__.vals_r("x");
-        current_statement__ = 10;
+        current_statement__ = 18;
         pos__ = 1;
-        current_statement__ = 10;
+        current_statement__ = 18;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 10;
+          current_statement__ = 18;
           stan::model::assign(x, x_flat__[(pos__ - 1)],
             "assigning variable x", stan::model::index_uni(sym1__));
-          current_statement__ = 10;
+          current_statement__ = 18;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 11;
+      current_statement__ = 19;
       stan::math::validate_non_negative_index("y", "N", N);
-      current_statement__ = 12;
+      current_statement__ = 20;
       context__.validate_dims("data initialization","y","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       y__ = 
@@ -106,21 +117,27 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       
       {
         std::vector<local_scalar_t__> y_flat__;
-        current_statement__ = 12;
+        current_statement__ = 20;
         y_flat__ = context__.vals_r("y");
-        current_statement__ = 12;
+        current_statement__ = 20;
         pos__ = 1;
-        current_statement__ = 12;
+        current_statement__ = 20;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 12;
+          current_statement__ = 20;
           stan::model::assign(y, y_flat__[(pos__ - 1)],
             "assigning variable y", stan::model::index_uni(sym1__));
-          current_statement__ = 12;
+          current_statement__ = 20;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 13;
+      current_statement__ = 21;
+      stan::math::validate_non_negative_index("mu", "N", N);
+      current_statement__ = 22;
       stan::math::validate_non_negative_index("y_gen", "N", N);
+      current_statement__ = 23;
+      stan::math::validate_non_negative_index("log_lik", "N", N);
+      current_statement__ = 24;
+      stan::math::validate_non_negative_index("y_hat", "N", N);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -156,15 +173,19 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       current_statement__ = 3;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
                 0, 1, lp__);
+      Eigen::Matrix<local_scalar_t__, -1, 1> mu =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(N, DUMMY_VAR__);
+      current_statement__ = 4;
+      stan::model::assign(mu,
+        stan::math::add(alpha, stan::math::multiply(x, beta)),
+        "assigning variable mu");
       {
-        current_statement__ = 5;
+        current_statement__ = 13;
         lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, 18, 2));
-        current_statement__ = 6;
+        current_statement__ = 14;
         lp_accum__.add(stan::math::normal_lpdf<propto__>(beta, -0.55, 0.04));
-        current_statement__ = 7;
-        lp_accum__.add(
-          stan::math::normal_lpdf<propto__>(y,
-            stan::math::add(alpha, stan::math::multiply(x, beta)), sigma));
+        current_statement__ = 15;
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(y, mu, sigma));
       }
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -208,6 +229,9 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
       current_statement__ = 3;
       sigma = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
                 0, 1, lp__);
+      Eigen::Matrix<double, -1, 1> mu =
+         Eigen::Matrix<double, -1, 1>::Constant(N,
+           std::numeric_limits<double>::quiet_NaN());
       out__.write(alpha);
       out__.write(beta);
       out__.write(sigma);
@@ -216,17 +240,47 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
             emit_generated_quantities__)))) {
         return ;
       } 
+      current_statement__ = 4;
+      stan::model::assign(mu,
+        stan::math::add(alpha, stan::math::multiply(x, beta)),
+        "assigning variable mu");
+      if (emit_transformed_parameters__) {
+        out__.write(mu);
+      } 
       if (stan::math::logical_negation(emit_generated_quantities__)) {
         return ;
       } 
       std::vector<double> y_gen =
          std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 4;
-      stan::model::assign(y_gen,
-        stan::math::normal_rng(
-          stan::math::add(alpha, stan::math::multiply(x, beta)), sigma,
-          base_rng__), "assigning variable y_gen");
+      Eigen::Matrix<double, -1, 1> log_lik =
+         Eigen::Matrix<double, -1, 1>::Constant(N,
+           std::numeric_limits<double>::quiet_NaN());
+      std::vector<double> y_hat =
+         std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 12;
+      for (int i = 1; i <= N; ++i) {
+        current_statement__ = 8;
+        stan::model::assign(y_gen,
+          stan::math::normal_rng(
+            stan::model::rvalue(mu, "mu", stan::model::index_uni(i)), sigma,
+            base_rng__),
+          "assigning variable y_gen", stan::model::index_uni(i));
+        current_statement__ = 9;
+        stan::model::assign(log_lik,
+          stan::math::normal_lpdf<false>(
+            stan::model::rvalue(y, "y", stan::model::index_uni(i)),
+            stan::model::rvalue(mu, "mu", stan::model::index_uni(i)), sigma),
+          "assigning variable log_lik", stan::model::index_uni(i));
+        current_statement__ = 10;
+        stan::model::assign(y_hat,
+          stan::math::normal_rng(
+            stan::model::rvalue(mu, "mu", stan::model::index_uni(i)), sigma,
+            base_rng__),
+          "assigning variable y_hat", stan::model::index_uni(i));
+      }
       out__.write(y_gen);
+      out__.write(log_lik);
+      out__.write(y_hat);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -263,7 +317,8 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
     
   inline void get_param_names(std::vector<std::string>& names__) const {
     
-    names__ = std::vector<std::string>{"alpha", "beta", "sigma", "y_gen"};
+    names__ = std::vector<std::string>{"alpha", "beta", "sigma", "mu",
+      "y_gen", "log_lik", "y_hat"};
     
     } // get_param_names() 
     
@@ -271,6 +326,9 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
     
     dimss__ = std::vector<std::vector<size_t>>{std::vector<size_t>{},
       std::vector<size_t>{}, std::vector<size_t>{},
+      std::vector<size_t>{static_cast<size_t>(N)},
+      std::vector<size_t>{static_cast<size_t>(N)},
+      std::vector<size_t>{static_cast<size_t>(N)},
       std::vector<size_t>{static_cast<size_t>(N)}};
     
     } // get_dims() 
@@ -285,13 +343,27 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
     param_names__.emplace_back(std::string() + "beta");
     param_names__.emplace_back(std::string() + "sigma");
     if (emit_transformed_parameters__) {
-      
+      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "mu" + '.' + std::to_string(sym1__));
+        } 
+      }
     }
     
     if (emit_generated_quantities__) {
       for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
         {
           param_names__.emplace_back(std::string() + "y_gen" + '.' + std::to_string(sym1__));
+        } 
+      }
+      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "log_lik" + '.' + std::to_string(sym1__));
+        } 
+      }
+      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "y_hat" + '.' + std::to_string(sym1__));
         } 
       }
     }
@@ -308,7 +380,11 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
     param_names__.emplace_back(std::string() + "beta");
     param_names__.emplace_back(std::string() + "sigma");
     if (emit_transformed_parameters__) {
-      
+      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "mu" + '.' + std::to_string(sym1__));
+        } 
+      }
     }
     
     if (emit_generated_quantities__) {
@@ -317,19 +393,29 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
           param_names__.emplace_back(std::string() + "y_gen" + '.' + std::to_string(sym1__));
         } 
       }
+      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "log_lik" + '.' + std::to_string(sym1__));
+        } 
+      }
+      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "y_hat" + '.' + std::to_string(sym1__));
+        } 
+      }
     }
     
     } // unconstrained_param_names() 
     
   inline std::string get_constrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"transformed_parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"},{\"name\":\"y_hat\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
     
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"alpha\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sigma\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"transformed_parameters\"},{\"name\":\"y_gen\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"},{\"name\":\"y_hat\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
     
     } // get_unconstrained_sizedtypes() 
     
@@ -344,8 +430,9 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
                             std::ostream* pstream = nullptr) const {
       const size_t num_params__ = 
   ((1 + 1) + 1);
-      const size_t num_transformed = 0;
-      const size_t num_gen_quantities = N;
+      const size_t num_transformed = N;
+      const size_t num_gen_quantities = 
+  ((N + N) + N);
       std::vector<double> vars_vec(num_params__
        + (emit_transformed_parameters * num_transformed)
        + (emit_generated_quantities * num_gen_quantities));
@@ -365,8 +452,9 @@ class Inflation_model_linear_model final : public model_base_crtp<Inflation_mode
                             std::ostream* pstream = nullptr) const {
       const size_t num_params__ = 
   ((1 + 1) + 1);
-      const size_t num_transformed = 0;
-      const size_t num_gen_quantities = N;
+      const size_t num_transformed = N;
+      const size_t num_gen_quantities = 
+  ((N + N) + N);
       vars.resize(num_params__
         + (emit_transformed_parameters * num_transformed)
         + (emit_generated_quantities * num_gen_quantities));
